@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { DockModule } from 'primeng/dock';
+import { MenuModule } from 'primeng/menu';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -13,6 +16,10 @@ import { DockModule } from 'primeng/dock';
   imports: [
     BrowserModule,
     AppRoutingModule, 
+    FormsModule,
+    CommonModule,
+    DockModule, 
+    MenuModule
     
   ],
   providers: [],
