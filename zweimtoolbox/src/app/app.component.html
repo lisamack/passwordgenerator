@@ -16,7 +16,13 @@
 
 <div class="content" role="main">
   
-  <span>{{ title }} app is running!</span>
+  <h1 style="padding-top: 20px; text-align: center; width: 100%;">{{title}}</h1>
+
+  <p-dock [model]="dockItems" position="left">
+    <ng-template pTemplate="item" let-item>
+      <img [src]="item.icon" [alt]="item.label" width="100%">
+    </ng-template>
+  </p-dock>
 
   <!-- Footer -->
   <footer>
