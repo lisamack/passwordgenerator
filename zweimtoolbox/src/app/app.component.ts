@@ -8,7 +8,7 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '2M Toolbox';
+  title = '2M Passwortgenerator';
   private _dockItems : MenuItem[] = [];
 
   ngOnInit() {

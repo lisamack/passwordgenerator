@@ -8,6 +8,11 @@ import { DockModule } from 'primeng/dock';
 import { MenuModule } from 'primeng/menu';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
+import { PanelModule } from 'primeng/panel';
+
+import { SharedModule } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -19,8 +24,11 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     CommonModule,
     DockModule, 
-    MenuModule
-    
+    MenuModule, 
+    ButtonModule, 
+    PanelModule, 
+    SharedModule, 
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

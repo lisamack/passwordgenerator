@@ -10,20 +10,28 @@
 <style>
 </style>
 
+
+
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
 </div>
 
 <div class="content" role="main">
   
-  <h1 style="padding-top: 20px; text-align: center; width: 100%;">{{title}}</h1>
+  <h1 style="padding-top: 20px; text-align: center; width: 100%;" id="apptitle">{{title}}</h1>
 
-  <p-dock [model]="dockItems" position="left">
-    <ng-template pTemplate="item" let-item>
-      <img [src]="item.icon" [alt]="item.label" width="100%">
-    </ng-template>
-  </p-dock>
 
+  <p-panel header="Passwortgenerator">
+    <div class="p-grid">
+      <div class="p-col-4 p-offset-3">
+        Länge des Passworts: </div>
+    </div>
+
+
+    
+
+    <p-button label="Passwort generieren"></p-button>
+  </p-panel>
   <!-- Footer -->
   <footer>
      
