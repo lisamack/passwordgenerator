@@ -14,6 +14,7 @@ import { DockModule } from 'primeng/dock';
 import { InputTextModule } from 'primeng/inputtext'
 import { MenuModule } from 'primeng/menu';
 import { PanelModule } from 'primeng/panel';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PanelModule } from 'primeng/panel';
     PanelModule, 
     SharedModule, 
     BrowserAnimationsModule, 
-    InputTextModule
+    InputTextModule, 
+    InputNumberModule
   ],
   providers: [],
   bootstrap: [AppComponent]

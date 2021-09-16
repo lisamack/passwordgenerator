@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { MenuItem } from 'primeng/api';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,26 +7,13 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppComponent {
   title = '2M Passwortgenerator';
-  private _dockItems : MenuItem[] = [];
+  private _passwordLength: number = 10; 
 
-  ngOnInit() {
-    this._dockItems = [
-      {
-        label: 'Passwortgenerator', 
-        icon: 'assets/images/key2.png'
-      }, 
-      {
-        label: 'DFÜ', 
-        icon: 'assets/images/files.png'
-      }
-    ];
+  get passwordLength(): number {
+    return this._passwordLength;
   }
 
-  get dockItems(): MenuItem[] {
-    return this._dockItems;
-  }
-
-  set dockItems(dockItems: MenuItem[]) {
-    this._dockItems = dockItems;
+  set passwordLength(passwordLength: number) {
+    this._passwordLength = passwordLength;
   }
 }

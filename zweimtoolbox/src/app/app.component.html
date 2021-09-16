@@ -20,14 +20,16 @@
 
   <h1 style="padding-top: 20px; text-align: center; width: 100%;" id="apptitle">{{title}}</h1>
 
-
   <div style="background-color: #2a323d;text-align: center;margin-left: 10%; margin-right: 10%;">
-    Länge des Passwortes: 
-    <p-inputText></p-inputText>
+    
+    
     <p-button label="Passwort generieren"></p-button>
   </div>
 
-  
+  <div class="p-field">
+    <label for="passwortLengthInput">Länge des Passwortes</label>
+    <p-inputNumber [(ngModel)]="passwordLength" [showButtons]="true" mode="decimal" [min]="10" [max]="1024" [useGrouping]="false" id="passwortLengthInput"></p-inputNumber>
+  </div>
 
   <!-- Footer -->
   <footer>
