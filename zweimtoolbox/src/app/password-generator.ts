@@ -15,7 +15,7 @@ export class PasswordGenerator {
      * PasswordDetails shows how long the password has to be and which signs should be used.
      * 
      * @param passwordDetails details for passsword generation
-     * @returns the generated password
+     * @returns the generated password  
      */
     public static generatePassword(passwordDetails: PasswordDetails): string {
         // checks if the password has to be easy because then we need to generate in another way
