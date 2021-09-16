@@ -4,15 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { DockModule } from 'primeng/dock';
-import { MenuModule } from 'primeng/menu';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
-import { PanelModule } from 'primeng/panel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from 'primeng/api';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ButtonModule } from 'primeng/button';
+import { DockModule } from 'primeng/dock';
+import { InputTextModule } from 'primeng/inputtext'
+import { MenuModule } from 'primeng/menu';
+import { PanelModule } from 'primeng/panel';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     ButtonModule, 
     PanelModule, 
     SharedModule, 
-    BrowserAnimationsModule
+    BrowserAnimationsModule, 
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
