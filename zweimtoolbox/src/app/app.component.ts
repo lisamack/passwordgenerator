@@ -1,3 +1,4 @@
+import { PasswordGenerator } from './password-generator';
 import { PasswordDetails } from './password-details';
 import { Component } from '@angular/core';
 
@@ -12,6 +13,16 @@ export class AppComponent {
   private _upperCase: boolean = false;
   private _easy: boolean = false; 
   private _specialSigns: boolean = false; 
+  private _generatedPassword: string = ""; 
+
+public generatePassword(): void {
+  let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._specialSigns);
+  this._generatedPassword = PasswordGenerator.generatePassword(passwordDetails); 
+}
+
+  get generatedPassword(): string {
+    return this._generatedPassword; 
+  }
 
   get passwordLength(): number {
     return this._passwordLength;

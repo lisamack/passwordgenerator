@@ -45,9 +45,13 @@
       <div class="col-12 offset-12"></div>
     </div>
     
-    <p-button label="Passwort generieren"></p-button>
+    <p-button label="Passwort generieren" (onClick)="generatePassword()"></p-button>
     
   </div>
+
+  <!--div style="text-align: center;">
+    <input type="text" pInputText (ngModel)="generatedPassword" disabled="true" />  
+  </div-->
 
   <!-- Footer -->
   <footer>

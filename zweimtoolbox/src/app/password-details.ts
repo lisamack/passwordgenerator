@@ -20,7 +20,7 @@ export class PasswordDetails {
      */
     private _specialSigns: boolean = true; 
 
-    constructor (length?: number, upperCase?: boolean, specialSigns: boolean = true) {
+        constructor (length: number = 10, upperCase: boolean = true, easy: boolean = false, specialSigns: boolean = true) {
         if (length) {
             this._length = length; 
         }
