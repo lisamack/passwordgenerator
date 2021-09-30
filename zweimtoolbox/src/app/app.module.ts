@@ -15,6 +15,7 @@ import { InputTextModule } from 'primeng/inputtext'
 import { MenuModule } from 'primeng/menu';
 import { PanelModule } from 'primeng/panel';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     SharedModule, 
     BrowserAnimationsModule, 
     InputTextModule, 
-    InputNumberModule
+    InputNumberModule, 
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

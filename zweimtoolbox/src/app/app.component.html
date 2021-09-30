@@ -21,14 +21,32 @@
   <h1 style="padding-top: 20px; text-align: center; width: 100%;" id="apptitle">{{title}}</h1>
 
   <div style="background-color: #2a323d;text-align: center;margin-left: 10%; margin-right: 10%;">
-    
+    <div class="grid">
+      <div class="col-3 offset-3"></div>
+      <div class="col-3"><label for="passwortLengthInput">Länge des Passwortes:</label></div>
+      <div class="col-3"><p-inputNumber [(ngModel)]="passwordLength" [showButtons]="true" mode="decimal" [min]="10" [max]="1024" [useGrouping]="false" id="passwortLengthInput"></p-inputNumber></div>
+      <div class="col-3 offset-3"></div>
+
+      <div class="col-3 offset-3"></div>
+      <div class="col-3"><label for="upperCaseCheckbox">Großbuchstaben:</label></div>
+      <div class="col-3"><p-checkbox id="upperCaseCheckbox" value="valUc" [(ngModel)]="upperCase"></p-checkbox></div>
+      <div class="col-3 offset-3"></div>
+
+      <div class="col-3 offset-3"></div>
+      <div class="col-3"><label for="easyCheckbox">Leicht merkbar:</label></div>
+      <div class="col-3"><p-checkbox id="easyCheckbox" value="valE" [(ngModel)]="upperCase"></p-checkbox></div>
+      <div class="col-3 offset-3"></div>
+
+      <div class="col-3 offset-3"></div>
+      <div class="col-3"><label for="specialSignsCheckbox">Sonderzeichen:</label></div>
+      <div class="col-3"><p-checkbox id="specialSignsCheckbox" value="valSs" [(ngModel)]="upperCase"></p-checkbox></div>
+      <div class="col-3 offset-3"></div>
+
+      <div class="col-12 offset-12"></div>
+    </div>
     
     <p-button label="Passwort generieren"></p-button>
-  </div>
-
-  <div class="p-field">
-    <label for="passwortLengthInput">Länge des Passwortes</label>
-    <p-inputNumber [(ngModel)]="passwordLength" [showButtons]="true" mode="decimal" [min]="10" [max]="1024" [useGrouping]="false" id="passwortLengthInput"></p-inputNumber>
+    
   </div>
 
   <!-- Footer -->
