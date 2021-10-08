@@ -109,4 +109,14 @@ export class AppComponent {
     this._numbers = numbers;
   }
 
+
+/**
+ * Todo: 
+ * - Logik testen
+ * - Fehlerbehandlungen einbauen
+ * - Passwort nur vorübergehend in die Zwischenablage kopieren
+ * - ConfirmDialog nach dem Kopieren des Passwortes nicht schließen
+ * - Recherchieren, wie man das fertige Angularprojekt ausliefert
+ */
+
 }
