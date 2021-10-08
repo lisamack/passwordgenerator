@@ -20,6 +20,9 @@ export class AppComponent {
 
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {}
 
+  /**
+   * Generates a new password by the chosen settings und shows the new password in a dialog where it can be copied. 
+   */
   public generatePassword(): void {
     let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._numbers, this._specialSigns);
     this._generatedPassword = PasswordGenerator.generatePassword(passwordDetails); 
@@ -29,6 +32,9 @@ export class AppComponent {
     }})
   }
 
+  /**
+   * Prepare the settings for a password that should be easy to notice. 
+   */
   public prepareEasyToNotice(): void {
     this._passwordLength = 10; 
     this._specialSigns = true; 
@@ -37,6 +43,9 @@ export class AppComponent {
     this._easy = true; 
   }
 
+  /**
+   * Prepares the settings for a password that should be safe. 
+   */
   public prepareSafePassword(): void {
     this._passwordLength = 16; 
     this._specialSigns = true; 
@@ -45,6 +54,9 @@ export class AppComponent {
     this._easy = false; 
   }
 
+  /**
+   * Prepares the settings for a password that is suitable for administration purposes.
+   */
   public prepareAdminPassword(): void {
     this._passwordLength = 32; 
     this._specialSigns = true; 
