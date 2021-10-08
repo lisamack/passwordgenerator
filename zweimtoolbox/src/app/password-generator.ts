@@ -51,11 +51,13 @@ export class PasswordGenerator {
         // initialization of password
         let password: string = ""; 
         
-        // generates 1 uppercase letters
-        const upperCaseLetters: string[] = this.UPPER_CASE_LETTERS.split("");
-        password += this.randomSymbol(upperCaseLetters);
+        // generates 1 uppercase letters if upper case letters are allowed
+        if (passwordDetails.upperCase == true) {
+            const upperCaseLetters: string[] = this.UPPER_CASE_LETTERS.split("");
+            password += this.randomSymbol(upperCaseLetters);
+        }
 
-        // generates multiple uppercase letters (the length of the password minus the number of other symbols)
+        // generates multiple lowercase letters (the length of the password minus the number of other symbols)
         const lowerCaseLength: number = passwordDetails.length - 4 - numberSpecialSigns;
         const constants: string[] = this.LOWER_CASE_CONSONANTS.split("");
         const vocals: string[] = this.LOWER_CASE_VOCALS.split("");
@@ -71,16 +73,20 @@ export class PasswordGenerator {
             }
         }
         
-        // generates 3 numbers
-        const numbers: string[] = this.NUMBERS.split("");
-        for (var counter = 0; counter < 3; counter++) {
-            password += this.randomSymbol(numbers);
+        // generates 3 numbers if numbers are allowed
+        if (passwordDetails.numbers == true) {
+            const numbers: string[] = this.NUMBERS.split("");
+            for (var counter = 0; counter < 3; counter++) {
+                password += this.randomSymbol(numbers);
+            }
         }
         
-        // generates 1 or 2 special signs
-        const specialSigns: string[] = this.SPECIAL_SIGNS.split("");
-        for (var counter = 0; counter < numberSpecialSigns; counter++) {
-            password += this.randomSymbol(specialSigns);
+        // generates 1 or 2 special signs if special signs are allowed
+        if (passwordDetails.specialSigns == true) {
+            const specialSigns: string[] = this.SPECIAL_SIGNS.split("");
+            for (var counter = 0; counter < numberSpecialSigns; counter++) {
+                password += this.randomSymbol(specialSigns);
+            }
         }
 
         return password; 
@@ -119,9 +125,12 @@ export class PasswordGenerator {
             symbols = symbols.concat(this.UPPER_CASE_LETTERS.split(""));    
         }
         if (passwordDetails.specialSigns) {
-            symbols = symbols.concat(this.SPECIAL_SIGNS.split(""))
+            symbols = symbols.concat(this.SPECIAL_SIGNS.split(""));
         }
-        
+        if (passwordDetails.numbers) {
+            symbols = symbols.concat(this.NUMBERS.split(""));
+        }
+
         return symbols;
     }
 

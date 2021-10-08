@@ -11,17 +11,17 @@ import { ConfirmationService } from 'primeng/api';
 export class AppComponent {
   title = '2M Passwortgenerator';
   private _passwordLength: number = 10; 
-  private _upperCase: boolean = false;
+  private _upperCase: boolean = true;
   private _easy: boolean = false; 
-  private _specialSigns: boolean = false; 
+  private _specialSigns: boolean = true; 
+  private _numbers: boolean = true; 
   private _generatedPassword: string = ""; 
 
   constructor(private confirmationService: ConfirmationService) {}
 
 public generatePassword(): void {
-  let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._specialSigns);
+  let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._numbers, this._specialSigns);
   this._generatedPassword = PasswordGenerator.generatePassword(passwordDetails); 
-  console.log("Das ist das generierte Passwort: " + this._generatedPassword);
   this.confirmationService.confirm({message: this._generatedPassword, accept: () => { 
     // copy password into context menu
   }})
@@ -61,6 +61,14 @@ public generatePassword(): void {
 
   set specialSigns(specialSigns: boolean) {
     this._specialSigns = specialSigns; 
+  }
+
+  get numbers(): boolean {
+    return this._numbers;
+  }
+
+  set numbers(numbers: boolean) {
+    this._numbers = numbers;
   }
 
 }

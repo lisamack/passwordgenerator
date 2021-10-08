@@ -29,17 +29,22 @@
 
       <div class="col-3 offset-3"></div>
       <div class="col-3"><label for="upperCaseCheckbox">Großbuchstaben:</label></div>
-      <div class="col-3"><p-checkbox id="upperCaseCheckbox" value="valUc" [(ngModel)]="upperCase"></p-checkbox></div>
+      <div class="col-3"><p-checkbox id="upperCaseCheckbox" value="valUc" [(ngModel)]="upperCase" [binary]="true"></p-checkbox></div>
+      <div class="col-3 offset-3"></div>
+
+      <div class="col-3 offset-3"></div>
+      <div class="col-3"><label for="numbersCheckbox">Nummern:</label></div>
+      <div class="col-3"><p-checkbox id="numbersCheckbox" value="valNr" [(ngModel)]="numbers" [binary]="true"></p-checkbox></div>
+      <div class="col-3 offset-3"></div>
+      
+      <div class="col-3 offset-3"></div>
+      <div class="col-3"><label for="specialSignsCheckbox">Sonderzeichen:</label></div>
+      <div class="col-3"><p-checkbox id="specialSignsCheckbox" value="valSs" [(ngModel)]="specialSigns" [binary]="true"></p-checkbox></div>
       <div class="col-3 offset-3"></div>
 
       <div class="col-3 offset-3"></div>
       <div class="col-3"><label for="easyCheckbox">Leicht merkbar:</label></div>
-      <div class="col-3"><p-checkbox id="easyCheckbox" value="valE" [(ngModel)]="easy"></p-checkbox></div>
-      <div class="col-3 offset-3"></div>
-
-      <div class="col-3 offset-3"></div>
-      <div class="col-3"><label for="specialSignsCheckbox">Sonderzeichen:</label></div>
-      <div class="col-3"><p-checkbox id="specialSignsCheckbox" value="valSs" [(ngModel)]="specialSigns"></p-checkbox></div>
+      <div class="col-3"><p-checkbox id="easyCheckbox" value="valE" [(ngModel)]="easy" [binary]="true"></p-checkbox></div>
       <div class="col-3 offset-3"></div>
 
       <div class="col-12 offset-12"></div>
