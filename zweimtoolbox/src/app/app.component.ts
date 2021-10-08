@@ -19,13 +19,29 @@ export class AppComponent {
 
   constructor(private confirmationService: ConfirmationService) {}
 
-public generatePassword(): void {
-  let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._numbers, this._specialSigns);
-  this._generatedPassword = PasswordGenerator.generatePassword(passwordDetails); 
-  this.confirmationService.confirm({message: this._generatedPassword, accept: () => { 
-    // copy password into context menu
-  }})
-}
+  public generatePassword(): void {
+    let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._numbers, this._specialSigns);
+    this._generatedPassword = PasswordGenerator.generatePassword(passwordDetails); 
+    this.confirmationService.confirm({message: this._generatedPassword, accept: () => { 
+      navigator.clipboard.writeText(this._generatedPassword).then().catch(e => console.error(e));
+    }})
+  }
+
+  public prepareEasyToNotice(): void {
+    // Length 10, numbers, special signs, upper case
+  }
+
+  public prepareSafePassword(): void {
+    // Length 16, numbers, special signs, upper case
+  }
+
+  public prepareAdminPassword(): void {
+    // length 32, numbers, special signs, upper case
+  }
+
+  private copyToClipboard(text: string): void {
+    
+  }
 
   get generatedPassword(): string {
     return this._generatedPassword; 
