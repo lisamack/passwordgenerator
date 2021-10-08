@@ -34,20 +34,28 @@
 
       <div class="col-3 offset-3"></div>
       <div class="col-3"><label for="easyCheckbox">Leicht merkbar:</label></div>
-      <div class="col-3"><p-checkbox id="easyCheckbox" value="valE" [(ngModel)]="upperCase"></p-checkbox></div>
+      <div class="col-3"><p-checkbox id="easyCheckbox" value="valE" [(ngModel)]="easy"></p-checkbox></div>
       <div class="col-3 offset-3"></div>
 
       <div class="col-3 offset-3"></div>
       <div class="col-3"><label for="specialSignsCheckbox">Sonderzeichen:</label></div>
-      <div class="col-3"><p-checkbox id="specialSignsCheckbox" value="valSs" [(ngModel)]="upperCase"></p-checkbox></div>
+      <div class="col-3"><p-checkbox id="specialSignsCheckbox" value="valSs" [(ngModel)]="specialSigns"></p-checkbox></div>
       <div class="col-3 offset-3"></div>
 
       <div class="col-12 offset-12"></div>
     </div>
     
     <p-button label="Passwort generieren" (onClick)="generatePassword()"></p-button>
-    
   </div>
+
+  <p-confirmDialog #cd header="Generiertes Passwort">
+    <input type="text" pInputText class="p-inputtext-lg" [ngModel]="generatedPassword" readonly="true">
+    <ng-template pTemplate="footer">
+      <button type="button" pButton icon="pi pi-times" label="Schließen" (click)="cd.reject()"></button>
+      <button type="button" pButton icon="pi pi-copy" label="Passwort kopieren" (click)="cd.accept()"></button>
+    </ng-template>
+  </p-confirmDialog>
+
 
   <!--div style="text-align: center;">
     <input type="text" pInputText (ngModel)="generatedPassword" disabled="true" />  

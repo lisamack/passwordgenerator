@@ -10,7 +10,7 @@ export class PasswordDetails {
     /**
      * Shows if upper case letters should be contained
      */
-    private _upperCase: boolean = true; 
+    private _upperCase: boolean = false; 
     /**
      * Shows if the password should be easy to remember
      */
@@ -18,9 +18,9 @@ export class PasswordDetails {
     /**
      * Shows if the password should contain special signs
      */
-    private _specialSigns: boolean = true; 
+    private _specialSigns: boolean = false; 
 
-        constructor (length: number = 10, upperCase: boolean = true, easy: boolean = false, specialSigns: boolean = true) {
+    constructor (length: number = 10, upperCase: boolean = true, easy: boolean = false, specialSigns: boolean = true) {
         if (length) {
             this._length = length; 
         }
@@ -29,6 +29,9 @@ export class PasswordDetails {
         }
         if (specialSigns) {
             this._specialSigns = specialSigns;
+        }
+        if (easy) {
+            this._easy = easy; 
         }
     }
 

@@ -1,6 +1,7 @@
 import { PasswordGenerator } from './password-generator';
 import { PasswordDetails } from './password-details';
 import { Component } from '@angular/core';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,15 @@ export class AppComponent {
   private _specialSigns: boolean = false; 
   private _generatedPassword: string = ""; 
 
+  constructor(private confirmationService: ConfirmationService) {}
+
 public generatePassword(): void {
   let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._specialSigns);
   this._generatedPassword = PasswordGenerator.generatePassword(passwordDetails); 
+  console.log("Das ist das generierte Passwort: " + this._generatedPassword);
+  this.confirmationService.confirm({message: this._generatedPassword, accept: () => { 
+    // copy password into context menu
+  }})
 }
 
   get generatedPassword(): string {

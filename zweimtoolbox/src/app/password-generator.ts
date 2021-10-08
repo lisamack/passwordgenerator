@@ -29,7 +29,7 @@ export class PasswordGenerator {
 
         // password is initialized empty
         let password: string = ""; 
-        for (var counter = 0; counter < length; counter++) {
+        for (var counter = 0; counter < passwordDetails.length; counter++) {
             // random symbol is generated and added to password
             password += this.randomSymbol(symbols);
             password.concat("");

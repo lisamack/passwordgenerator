@@ -16,6 +16,8 @@ import { MenuModule } from 'primeng/menu';
 import { PanelModule } from 'primeng/panel';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { CheckboxModule } from 'primeng/checkbox';
     BrowserAnimationsModule, 
     InputTextModule, 
     InputNumberModule, 
-    CheckboxModule
+    CheckboxModule, 
+    ConfirmDialogModule
   ],
-  providers: [],
+  providers: [ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
