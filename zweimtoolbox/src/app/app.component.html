@@ -20,6 +20,13 @@
 
   <h1 style="padding-top: 20px; text-align: center; width: 100%;" id="apptitle">{{title}}</h1>
 
+  <p-toast position="top-right"></p-toast>
+
+  <div style="text-align: center;padding-bottom: 20px">
+    <p-button class="setting-button" label="Sicheres Passwort" (onClick)="prepareSafePassword()"></p-button>
+    <p-button class="setting-button" label="Einfach zu merken" (onClick)="prepareEasyToNotice()"></p-button>
+    <p-button class="setting-button" label="Administrator-Passwort" (onClick)="prepareAdminPassword()"></p-button>
+  </div>
   <div style="background-color: #2a323d;text-align: center;margin-left: 10%; margin-right: 10%;padding-bottom: 10px;">
     <div class="grid">
       <div class="col-3 offset-3"></div>

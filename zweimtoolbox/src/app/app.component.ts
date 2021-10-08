@@ -1,7 +1,8 @@
 import { PasswordGenerator } from './password-generator';
 import { PasswordDetails } from './password-details';
 import { Component } from '@angular/core';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { SubjectSubscriber } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-root',
@@ -17,30 +18,39 @@ export class AppComponent {
   private _numbers: boolean = true; 
   private _generatedPassword: string = ""; 
 
-  constructor(private confirmationService: ConfirmationService) {}
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {}
 
   public generatePassword(): void {
     let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._numbers, this._specialSigns);
     this._generatedPassword = PasswordGenerator.generatePassword(passwordDetails); 
     this.confirmationService.confirm({message: this._generatedPassword, accept: () => { 
       navigator.clipboard.writeText(this._generatedPassword).then().catch(e => console.error(e));
+      this.messageService.add({severity: 'info', summary: 'Kopiervorgang', detail: 'Das Passwort wurde in die Zwischenablage kopiert.'})
     }})
   }
 
   public prepareEasyToNotice(): void {
-    // Length 10, numbers, special signs, upper case
+    this._passwordLength = 10; 
+    this._specialSigns = true; 
+    this._upperCase = true; 
+    this._numbers = true; 
+    this._easy = true; 
   }
 
   public prepareSafePassword(): void {
-    // Length 16, numbers, special signs, upper case
+    this._passwordLength = 16; 
+    this._specialSigns = true; 
+    this._upperCase = true; 
+    this._numbers = true; 
+    this._easy = false; 
   }
 
   public prepareAdminPassword(): void {
-    // length 32, numbers, special signs, upper case
-  }
-
-  private copyToClipboard(text: string): void {
-    
+    this._passwordLength = 32; 
+    this._specialSigns = true; 
+    this._upperCase = true; 
+    this._numbers = true; 
+    this._easy = false; 
   }
 
   get generatedPassword(): string {
