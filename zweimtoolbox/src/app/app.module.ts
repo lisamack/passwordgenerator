@@ -1,3 +1,4 @@
+import { PasswordGenerator } from './password-generator';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -41,7 +42,7 @@ import { ToastModule } from 'primeng/toast';
     ConfirmDialogModule, 
     ToastModule
   ],
-  providers: [ConfirmationService, MessageService],
+  providers: [ConfirmationService, MessageService, PasswordGenerator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

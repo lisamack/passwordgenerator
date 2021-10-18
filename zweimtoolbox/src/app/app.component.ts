@@ -18,14 +18,14 @@ export class AppComponent {
   private _numbers: boolean = true; 
   private _generatedPassword: string = ""; 
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {}
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private passwordGenerator: PasswordGenerator) {}
 
   /**
    * Generates a new password by the chosen settings und shows the new password in a dialog where it can be copied. 
    */
   public generatePassword(): void {
     let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._numbers, this._specialSigns);
-    this._generatedPassword = PasswordGenerator.generatePassword(passwordDetails); 
+    this._generatedPassword = this.passwordGenerator.generatePassword(passwordDetails); 
     this.confirmationService.confirm({message: this._generatedPassword, accept: () => { 
       navigator.clipboard.writeText(this._generatedPassword).then().catch(e => console.error(e));
       this.messageService.add({severity: 'info', summary: 'Kopiervorgang', detail: 'Das Passwort wurde in die Zwischenablage kopiert.'})

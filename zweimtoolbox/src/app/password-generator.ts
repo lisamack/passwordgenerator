@@ -17,7 +17,7 @@ export class PasswordGenerator {
      * @param passwordDetails details for passsword generation
      * @returns the generated password  
      */
-    public static generatePassword(passwordDetails: PasswordDetails): string {
+    public generatePassword(passwordDetails: PasswordDetails): string {
         // checks if the password has to be easy because then we need to generate in another way
         if (passwordDetails.easy) {
             return this.generateEasyPassword(passwordDetails); 
@@ -44,7 +44,7 @@ export class PasswordGenerator {
      * @param passwordDetails details for passsword generation
      * @returns the generated password
      */
-    private static generateEasyPassword(passwordDetails: PasswordDetails): string {
+    private generateEasyPassword(passwordDetails: PasswordDetails): string {
         // number of specials signs (1 or 2)
         const numberSpecialSigns: number = this.randomNumber(1) + 1; 
                 
@@ -53,14 +53,14 @@ export class PasswordGenerator {
         
         // generates 1 uppercase letters if upper case letters are allowed
         if (passwordDetails.upperCase == true) {
-            const upperCaseLetters: string[] = this.UPPER_CASE_LETTERS.split("");
+            const upperCaseLetters: string[] = PasswordGenerator.UPPER_CASE_LETTERS.split("");
             password += this.randomSymbol(upperCaseLetters);
         }
 
         // generates multiple lowercase letters (the length of the password minus the number of other symbols)
         const lowerCaseLength: number = passwordDetails.length - 4 - numberSpecialSigns;
-        const constants: string[] = this.LOWER_CASE_CONSONANTS.split("");
-        const vocals: string[] = this.LOWER_CASE_VOCALS.split("");
+        const constants: string[] = PasswordGenerator.LOWER_CASE_CONSONANTS.split("");
+        const vocals: string[] = PasswordGenerator.LOWER_CASE_VOCALS.split("");
         for (var counter = 0; counter < lowerCaseLength; counter++) {
             // vocals and consonants are alternating (first a constant, then a vocal, etc.l)
             let rest: number = counter % 2;
@@ -75,7 +75,7 @@ export class PasswordGenerator {
         
         // generates 3 numbers if numbers are allowed
         if (passwordDetails.numbers == true) {
-            const numbers: string[] = this.NUMBERS.split("");
+            const numbers: string[] = PasswordGenerator.NUMBERS.split("");
             for (var counter = 0; counter < 3; counter++) {
                 password += this.randomSymbol(numbers);
             }
@@ -83,7 +83,7 @@ export class PasswordGenerator {
         
         // generates 1 or 2 special signs if special signs are allowed
         if (passwordDetails.specialSigns == true) {
-            const specialSigns: string[] = this.SPECIAL_SIGNS.split("");
+            const specialSigns: string[] = PasswordGenerator.SPECIAL_SIGNS.split("");
             for (var counter = 0; counter < numberSpecialSigns; counter++) {
                 password += this.randomSymbol(specialSigns);
             }
@@ -98,7 +98,7 @@ export class PasswordGenerator {
      * @param symbolSet any set of symbols
      * @returns a symbol
      */
-    private static randomSymbol(symbolSet: string[]): string {
+    private randomSymbol(symbolSet: string[]): string {
         return symbolSet[this.randomNumber(symbolSet.length)]; 
     }
 
@@ -107,7 +107,7 @@ export class PasswordGenerator {
      * @param length maximum length of random number
      * @returns the random number
      */
-    private static randomNumber(length: number): number {
+    private randomNumber(length: number): number {
         return Math.floor(Math.random() * length); 
     }
 
@@ -119,16 +119,16 @@ export class PasswordGenerator {
      * @param passwordDetails details for passsword generation
      * @returns all symbols that can be used for the password
      */
-    private static generateSymbols(passwordDetails: PasswordDetails): string[] {
-        let symbols: string[] = this.LOWER_CASE_LETTERS.split("");
+    private generateSymbols(passwordDetails: PasswordDetails): string[] {
+        let symbols: string[] = PasswordGenerator.LOWER_CASE_LETTERS.split("");
         if (passwordDetails.upperCase) {
-            symbols = symbols.concat(this.UPPER_CASE_LETTERS.split(""));    
+            symbols = symbols.concat(PasswordGenerator.UPPER_CASE_LETTERS.split(""));    
         }
         if (passwordDetails.specialSigns) {
-            symbols = symbols.concat(this.SPECIAL_SIGNS.split(""));
+            symbols = symbols.concat(PasswordGenerator.SPECIAL_SIGNS.split(""));
         }
         if (passwordDetails.numbers) {
-            symbols = symbols.concat(this.NUMBERS.split(""));
+            symbols = symbols.concat(PasswordGenerator.NUMBERS.split(""));
         }
 
         return symbols;
