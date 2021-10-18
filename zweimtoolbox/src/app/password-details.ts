@@ -24,7 +24,7 @@ export class PasswordDetails {
      */
     private _numbers: boolean = true; 
 
-    constructor (length: number = 10, upperCase: boolean = true, easy: boolean = false, numbers: boolean = false, specialSigns: boolean = false) {
+    constructor (length: number = 10, upperCase: boolean = true, easy: boolean = false, numbers: boolean = true, specialSigns: boolean = true) {
         if (length != undefined) {
             this._length = length; 
         }

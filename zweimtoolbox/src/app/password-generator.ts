@@ -25,7 +25,6 @@ export class PasswordGenerator {
 
         // all symbols that can be used for the password
         const symbols: string[] = this.generateSymbols(passwordDetails); 
-        const symbolLength: number = symbols.length; 
 
         // password is initialized empty
         let password: string = ""; 
