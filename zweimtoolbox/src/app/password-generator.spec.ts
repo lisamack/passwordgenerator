@@ -1,10 +1,25 @@
-import { PasswordDetails, PasswordDetails } from './password-details';
+import { PasswordDetails } from './password-details';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, SharedModule } from 'primeng/api';
+import { TestBed } from '@angular/core/testing';
 import { PasswordGenerator } from './password-generator';
 
 describe('PasswordGenerator', () => {
   let generator: PasswordGenerator; 
-  beforeEach(() => { generator = new PasswordGenerator();})
+  let confirmService: ConfirmationService; 
   
+  beforeEach(() => { 
+    TestBed.configureTestingModule({ 
+      imports: [ConfirmDialogModule, SharedModule], 
+      providers: [ConfirmationService, PasswordGenerator] });
+    generator = TestBed.inject(PasswordGenerator);
+    confirmService = TestBed.inject(ConfirmationService);
+  })
+  
+  it('instance should be created', () => {
+    expect(confirmService).toBeTruthy();
+  });
+
   it('instance should be created', () => {
     expect(generator).toBeTruthy();
   });
@@ -24,4 +39,7 @@ describe('PasswordGenerator', () => {
     expect(Number.isNaN(password.substr(5, 3)) && Number.isNaN(password.substr(6, 3))).toBeFalse();
     // todo: test special signs
   });
+
+  // todo: test if generated passwords differ
+
 });

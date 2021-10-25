@@ -2,7 +2,6 @@ import { PasswordGenerator } from './password-generator';
 import { PasswordDetails } from './password-details';
 import { Component } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { SubjectSubscriber } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-root',
@@ -112,11 +111,12 @@ export class AppComponent {
 
 /**
  * Todo: 
- * - Logik testen
+ * - Logik testen (auch, ob bei mehrmaligem generieren die Passwörter unterschiedlich sind)
  * - Fehlerbehandlungen einbauen
  * - Passwort nur vorübergehend in die Zwischenablage kopieren
  * - ConfirmDialog nach dem Kopieren des Passwortes nicht schließen
  * - Recherchieren, wie man das fertige Angularprojekt ausliefert
+ * - Buttons anders gestalten
  */
 
 }

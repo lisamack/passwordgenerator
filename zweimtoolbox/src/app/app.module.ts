@@ -20,6 +20,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ToastModule } from 'primeng/toast';
     InputNumberModule, 
     CheckboxModule, 
     ConfirmDialogModule, 
-    ToastModule
+    ToastModule, 
+    HttpClientModule
   ],
   providers: [ConfirmationService, MessageService, PasswordGenerator],
   bootstrap: [AppComponent]

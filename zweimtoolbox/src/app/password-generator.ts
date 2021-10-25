@@ -1,4 +1,9 @@
+import { Injectable } from '@angular/core';
 import { PasswordDetails } from './password-details';
+
+@Injectable({
+    providedIn: 'root'
+  })
 export class PasswordGenerator {
     
     private static SPECIAL_SIGNS: string = "\/()[]{}?!$%&=*+~,.;:<>-_"; 
