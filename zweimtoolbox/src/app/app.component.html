@@ -60,13 +60,13 @@
     <p-button label="Passwort generieren" (onClick)="generatePassword()"></p-button>
   </div>
 
-  <p-confirmDialog #cd header="Generiertes Passwort">
-    <input type="text" pInputText class="p-inputtext-lg" [ngModel]="generatedPassword" readonly="true">
+  <p-dialog header="Generiertes Passwort" [(visible)]="display">
+    <input type="text" pInputText class="p-inputtext-lg" [ngModel]="generatedPassword" readonly="true" >  
     <ng-template pTemplate="footer">
-      <button type="button" pButton icon="pi pi-times" label="Schließen" (click)="cd.reject()"></button>
-      <button type="button" pButton icon="pi pi-copy" label="Passwort kopieren" (click)="cd.accept()"></button>
+      <button type="button" pButton icon="pi pi-times" label="Schließen" (click)="close()"></button>
+      <button type="button" pButton icon="pi pi-copy" label="Passwort kopieren" (click)="copyPassword()" autofocus></button>
     </ng-template>
-  </p-confirmDialog>
+  </p-dialog>
 
   <!-- Footer -->
   <footer>

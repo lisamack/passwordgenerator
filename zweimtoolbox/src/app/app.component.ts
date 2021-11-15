@@ -16,6 +16,7 @@ export class AppComponent {
   private _specialSigns: boolean = true; 
   private _numbers: boolean = true; 
   private _generatedPassword: string = ""; 
+  private _display: boolean = false; 
 
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private passwordGenerator: PasswordGenerator) {}
 
@@ -25,10 +26,22 @@ export class AppComponent {
   public generatePassword(): void {
     let passwordDetails: PasswordDetails = new PasswordDetails(this._passwordLength, this._upperCase, this._easy, this._numbers, this._specialSigns);
     this._generatedPassword = this.passwordGenerator.generatePassword(passwordDetails); 
-    this.confirmationService.confirm({message: this._generatedPassword, accept: () => { 
-      navigator.clipboard.writeText(this._generatedPassword).then().catch(e => console.error(e));
-      this.messageService.add({severity: 'info', summary: 'Kopiervorgang', detail: 'Das Passwort wurde in die Zwischenablage kopiert.'})
-    }})
+    this._display = true; 
+  }
+
+  /**
+   * Closes the dialog. 
+   */
+  public close(): void {
+      this.display = false; 
+  }
+
+  /**
+   * Copies the password into clipboard. 
+   */
+  public copyPassword(): void {
+    navigator.clipboard.writeText(this._generatedPassword).then().catch(e => console.error(e));
+    this.messageService.add({severity: 'info', summary: 'Kopiervorgang', detail: 'Das Passwort wurde in die Zwischenablage kopiert.'})
   }
 
   /**
@@ -108,13 +121,19 @@ export class AppComponent {
     this._numbers = numbers;
   }
 
+  get display(): boolean {
+    return this._display; 
+  }
+
+  set display(display: boolean) {
+    this._display = display; 
+  }
 
 /**
  * Todo: 
  * - Logik testen (auch, ob bei mehrmaligem generieren die Passwörter unterschiedlich sind)
  * - Fehlerbehandlungen einbauen
  * - Passwort nur vorübergehend in die Zwischenablage kopieren
- * - ConfirmDialog nach dem Kopieren des Passwortes nicht schließen
  * - Recherchieren, wie man das fertige Angularprojekt ausliefert
  * - Buttons anders gestalten
  */

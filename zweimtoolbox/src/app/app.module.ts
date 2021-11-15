@@ -21,6 +21,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { HttpClientModule } from '@angular/common/http'; 
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     CheckboxModule, 
     ConfirmDialogModule, 
     ToastModule, 
-    HttpClientModule
+    HttpClientModule, 
+    DialogModule
   ],
   providers: [ConfirmationService, MessageService, PasswordGenerator],
   bootstrap: [AppComponent]
