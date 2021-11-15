@@ -18,6 +18,12 @@ export class AppComponent {
   private _generatedPassword: string = ""; 
   private _display: boolean = false; 
 
+  private _options: PasswordOption[] = [ new PasswordOption("Benutzerdefiniert", "BP", true),
+                                         new PasswordOption("Sicheres Password", "SP", false), 
+                                         new PasswordOption("Einfach zu merken", "EP", false),
+                                         new PasswordOption("Administrator-Passwort", "AP", false)];
+  private _selectedOption: PasswordOption = this._options[0]; 
+
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private passwordGenerator: PasswordGenerator) {}
 
   /**
@@ -45,9 +51,31 @@ export class AppComponent {
   }
 
   /**
+   * If input changes then the settings are defined by the user 
+   */
+  public inputChanged(): void {
+      this.selectedOption = this._options[0];
+  }
+
+  /**
+   * Bereitet die verschiedenen vorbereiteten Einstellungen vor. 
+   */
+  public optionsChanged(): void {
+    if (this._selectedOption.code == "SP") {
+      this.prepareSafePassword();
+    }
+    if (this._selectedOption.code == "EP") {
+      this.prepareEasyToNotice();
+    }
+    if (this._selectedOption.code == "AP") {
+      this.prepareAdminPassword();
+    }
+  }
+
+  /**
    * Prepare the settings for a password that should be easy to notice. 
    */
-  public prepareEasyToNotice(): void {
+  private prepareEasyToNotice(): void {
     this._passwordLength = 10; 
     this._specialSigns = true; 
     this._upperCase = true; 
@@ -58,7 +86,7 @@ export class AppComponent {
   /**
    * Prepares the settings for a password that should be safe. 
    */
-  public prepareSafePassword(): void {
+  private prepareSafePassword(): void {
     this._passwordLength = 16; 
     this._specialSigns = true; 
     this._upperCase = true; 
@@ -69,7 +97,7 @@ export class AppComponent {
   /**
    * Prepares the settings for a password that is suitable for administration purposes.
    */
-  public prepareAdminPassword(): void {
+  private prepareAdminPassword(): void {
     this._passwordLength = 32; 
     this._specialSigns = true; 
     this._upperCase = true; 
@@ -127,6 +155,18 @@ export class AppComponent {
 
   set display(display: boolean) {
     this._display = display; 
+  }
+
+  get options(): PasswordOption[] {
+    return this._options;
+  }
+
+  get selectedOption(): PasswordOption {
+    return this._selectedOption;
+  }
+
+  set selectedOption(selectedOption: PasswordOption) {
+    this._selectedOption = selectedOption; 
   }
 
 /**

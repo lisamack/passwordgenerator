@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { MessageService, SharedModule } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -20,8 +21,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-import { HttpClientModule } from '@angular/common/http'; 
-import {DialogModule} from 'primeng/dialog';
+import { DialogModule } from 'primeng/dialog';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {DialogModule} from 'primeng/dialog';
     ConfirmDialogModule, 
     ToastModule, 
     HttpClientModule, 
-    DialogModule
+    DialogModule, 
+    SelectButtonModule
   ],
   providers: [ConfirmationService, MessageService, PasswordGenerator],
   bootstrap: [AppComponent]
