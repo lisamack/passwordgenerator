@@ -172,9 +172,6 @@ export class AppComponent {
 
 /**
  * Todo: 
- * - Logik testen (auch, ob bei mehrmaligem generieren die Passwörter unterschiedlich sind)
- * - Fehlerbehandlungen einbauen
- * - Passwort nur vorübergehend in die Zwischenablage kopieren
  * - Recherchieren, wie man das fertige Angularprojekt ausliefert
  */
 
