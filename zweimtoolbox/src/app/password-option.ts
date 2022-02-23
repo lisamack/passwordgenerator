@@ -1,4 +1,4 @@
-class PasswordOption {
+export class PasswordOption {
     private _name: string; 
     private _code: string; 
     private _inactive: boolean; 

@@ -2,6 +2,7 @@ import { PasswordGenerator } from './password-generator';
 import { PasswordDetails } from './password-details';
 import { Component } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { PasswordOption } from './password-option';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +19,11 @@ export class AppComponent {
   private _generatedPassword: string = ""; 
   private _display: boolean = false; 
 
-  private _options: PasswordOption[] = [ new PasswordOption("Benutzerdefiniert", "BP", true),
+  private _options: PasswordOption[] = [ new PasswordOption("Benutzerdefiniert", "BP", false),
                                          new PasswordOption("Sicheres Password", "SP", false), 
                                          new PasswordOption("Einfach zu merken", "EP", false),
                                          new PasswordOption("Administrator-Passwort", "AP", false)];
-  private _selectedOption: PasswordOption = this._options[0]; 
+  private _selectedOption: string = this._options[0].code; 
 
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private passwordGenerator: PasswordGenerator) {}
 
@@ -54,20 +55,20 @@ export class AppComponent {
    * If input changes then the settings are defined by the user 
    */
   public inputChanged(): void {
-      this.selectedOption = this._options[0];
+      this.selectedOption = this._options[0].code;
   }
 
   /**
    * Bereitet die verschiedenen vorbereiteten Einstellungen vor. 
    */
   public optionsChanged(): void {
-    if (this._selectedOption.code == "SP") {
+    if (this._selectedOption == "SP") {
       this.prepareSafePassword();
     }
-    if (this._selectedOption.code == "EP") {
+    if (this._selectedOption == "EP") {
       this.prepareEasyToNotice();
     }
-    if (this._selectedOption.code == "AP") {
+    if (this._selectedOption == "AP") {
       this.prepareAdminPassword();
     }
   }
@@ -161,11 +162,11 @@ export class AppComponent {
     return this._options;
   }
 
-  get selectedOption(): PasswordOption {
+  get selectedOption(): string {
     return this._selectedOption;
   }
 
-  set selectedOption(selectedOption: PasswordOption) {
+  set selectedOption(selectedOption: string) {
     this._selectedOption = selectedOption; 
   }
 
