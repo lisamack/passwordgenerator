@@ -10,7 +10,7 @@ import { PasswordOption } from './password-option';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '2M Passwortgenerator';
+  title = 'Passwortgenerator';
   private _passwordLength: number = 10; 
   private _upperCase: boolean = true;
   private _easy: boolean = false; 
