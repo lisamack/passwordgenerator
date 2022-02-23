@@ -176,7 +176,6 @@ export class AppComponent {
  * - Fehlerbehandlungen einbauen
  * - Passwort nur vorübergehend in die Zwischenablage kopieren
  * - Recherchieren, wie man das fertige Angularprojekt ausliefert
- * - Buttons anders gestalten
  */
 
 }

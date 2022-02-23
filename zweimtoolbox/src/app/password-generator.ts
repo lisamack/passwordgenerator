@@ -1,3 +1,4 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { PasswordDetails } from './password-details';
 
@@ -7,7 +8,6 @@ import { PasswordDetails } from './password-details';
 export class PasswordGenerator {
     
     private static SPECIAL_SIGNS: string = "\/()[]{}?!$%&=*+~,.;:<>-_"; 
-    // private static EASY_WORD: string = "[B-Z^EIOU][aeiou][b-z^eiou][aeiou][b-z^eiou][aeiou][b-z^eiou][aeiou][0-9]{3}[" + PasswordGenerator.SPECIAL_SIGNS + "]{1,2}";
     private static LOWER_CASE_VOCALS: string = "bcdfghjklmnpqrstvwxyz";
     private static LOWER_CASE_CONSONANTS: string = "aeiou";
     private static UPPER_CASE_LETTERS: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
@@ -73,7 +73,7 @@ export class PasswordGenerator {
             } else if (rest == 1) {
                 password += this.randomSymbol(vocals);
             } else {
-                // error
+                console.error("Error in Generation of multiple lower case letter. The rest of the division is not 0 or 1.");
             }
         }
         
