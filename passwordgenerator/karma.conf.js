@@ -26,7 +26,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/zweimtoolbox'),
+      dir: require('path').join(__dirname, './coverage/passwordgenerator'),
       subdir: '.',
       reporters: [
         { type: 'html' },

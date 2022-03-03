@@ -170,9 +170,4 @@ export class AppComponent {
     this._selectedOption = selectedOption; 
   }
 
-/**
- * Todo: 
- * - Recherchieren, wie man das fertige Angularprojekt ausliefert
- */
-
 }
